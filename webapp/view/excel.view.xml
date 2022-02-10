@@ -1,0 +1,40 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core" controllerName="ns.businesspartners.controller.excel">
+    <Page showNavButton="true" navButtonPress="onBack">
+        <Panel headerText="Dispaly Uploaded Excel data into below Table">
+            <Table alternateRowColors="true" id="idExcelTable" items="{excelModel>/excelData}">
+            <headerToolbar>
+                <Toolbar >
+                <ToolbarSpacer/>
+                    <Button icon="sap-icon://excel-attachment" tooltip="upload a Excel File" press="onExcelUpload"></Button>
+                </Toolbar>
+            </headerToolbar>
+                <columns>
+                    <Column>
+                        <Label text="Emp Id"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="Name"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="Phone"></Label>
+                    </Column>
+                    <Column>
+                        <Label text="City"></Label>
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem >
+                        <cells>
+                            <Text text="{excelModel>id}"></Text>
+                            <Text text="{excelModel>name}"></Text>
+                            <Text text="{excelModel>phone}"></Text>
+                            <Text text="{excelModel>city}"></Text>
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </Panel>
+    </Page>
+</mvc:View>

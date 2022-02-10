@@ -1,0 +1,42 @@
+<mvc:View controllerName="ns.businesspartners.controller.download"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Excel File Donwload" showNavButton="true" navButtonPress="onBack">
+        <Panel>
+            <Table items="{rawData>/flowers}" id="exportTable">
+                <headerToolbar>
+                    <Toolbar >
+                    <Title text="Download below Table Data into Excel"></Title>
+                        <ToolbarSpacer/>
+                            <Button text="CSV File" icon="sap-icon://download" press="onExport" tooltip="Download into CSV File"></Button>                     
+                            <Button text ="XLS File" icon="sap-icon://download" press="onExportXLS" tooltip="Download into XLs File"></Button>  
+                    </Toolbar>
+                </headerToolbar>
+                <columns>
+                    <Column >
+                        <Title text="Name"></Title>
+                    </Column>
+                    <Column >
+                        <Title text="Instructions"></Title>
+                    </Column>
+                    <Column >
+                        <Title text="Price"></Title>
+                    </Column>
+                    <Column >
+                        <Title text="Unit"></Title>
+                    </Column>
+                    <Column >
+                        <Title text="Category"></Title>
+                    </Column>
+                </columns>
+                <ColumnListItem>
+                    <Text text="{rawData>productId}-{rawData>name}"/>
+                    <Text text="{rawData>instructions}"/>
+                    <Text text="{rawData>price}"/>
+                    <Text text="{rawData>unit}"/>
+                    <Text text="{rawData>category}"/>
+                </ColumnListItem>
+            </Table>
+        </Panel>
+    </Page>
+</mvc:View >

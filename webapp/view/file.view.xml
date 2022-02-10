@@ -1,0 +1,22 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:unf="sap.ui.unified" controllerName="ns.businesspartners.controller.file">
+    <Page showNavButton="true" navButtonPress="onBack" title="{i18n>fileUpload}">
+        <Panel headerText="Image file Upload">
+            <unf:FileUploader id="idFileUploader"/>
+            <Button text="upload Image" press="onFileUpload" icon="sap-icon://upload"/>
+        </Panel>
+        <Panel headerText="Uploaded Image Display">
+            <HBox>
+                <Button id="idImageButton" text="Display Image" press="onImageDisplay"></Button>
+                <Button id="idImageLeft"   icon="sap-icon://navigation-right-arrow" press="onImageDisplay"></Button>
+            </HBox>
+            <HBox>
+                <Image id="idImage" height="300px" width="500px"></Image>
+            </HBox>
+            <HBox>
+                <Button id="idImageRight" icon="sap-icon://navigation-left-arrow" press="onImageDisplay"></Button>
+            </HBox>
+        </Panel>
+    </Page>
+</mvc:View>

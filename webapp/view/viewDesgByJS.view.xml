@@ -1,0 +1,9 @@
+<mvc:View xmlns:form="sap.ui.layout.form" controllerName="ns.businesspartners.controller.viewDesgByJS"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="This view is Designed based on JS code in Controller" showNavButton="true" navButtonPress="onBack">
+        <Panel id="idPanel">
+        </Panel>
+        <Panel id="idTablePanel"></Panel>
+    </Page>
+</mvc:View>

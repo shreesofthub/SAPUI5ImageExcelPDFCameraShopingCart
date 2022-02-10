@@ -1,0 +1,9 @@
+<mvc:View controllerName="ns.businesspartners.controller.cameraIntegration"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="Camera Integtaion and Image Display" showNavButton="true" navButtonPress="onBack">
+        <Button text="Take a Photo" icon="" press="onPhotoTaking"></Button>
+        <Button text="Save" press="onSave"/>
+        <VBox id="idBox"></VBox>
+    </Page>
+</mvc:View>

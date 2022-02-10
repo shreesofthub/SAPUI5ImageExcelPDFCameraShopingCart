@@ -1,0 +1,28 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m" controllerName="ns.businesspartners.controller.suppliers" displayBlock="true">
+    <Shell id="shell">
+        <App id="app">
+            <Page backgroundDesign="Solid" id="page" title="{i18n>main_Title}">
+                <content>
+                    <VBox>
+                        <RadioButtonGroup id="idrbg1">
+                            <buttons>
+                                <RadioButton text="ShoppingCart" selected="true"></RadioButton>
+                                <RadioButton text="Image(jpeg) file upload and Display"></RadioButton>
+                                <RadioButton text="Excel File Upload and Display on Table"></RadioButton>
+                                <RadioButton text="Excel File Download"></RadioButton>
+                                <RadioButton text="PDF Display"></RadioButton>
+                                <RadioButton text="Camera Integration"></RadioButton>
+                                <RadioButton text="Design a View uisng JS code from Controller"></RadioButton>
+                            </buttons>
+                        </RadioButtonGroup>
+                    </VBox>
+                    <VBox>
+                        <Button text="Next" icon="sap-icon://open-command-field" press="onRBAction"/>
+                    </VBox>
+                </content>
+            </Page>
+        </App>
+    </Shell>
+</mvc:View>

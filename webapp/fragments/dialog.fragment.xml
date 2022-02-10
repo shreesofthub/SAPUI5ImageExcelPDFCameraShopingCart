@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+    <ViewSettingsDialog id="idViewDialog" confirm=".onViewDialogSelection">
+        <sortItems>
+            <ViewSettingsItem text="{i18n>sort1}" key="name" selected="true"></ViewSettingsItem>
+            <ViewSettingsItem text="{i18n>sort2}" key="description"></ViewSettingsItem>
+        </sortItems>
+        <filterItems>
+            <ViewSettingsFilterItem text="{i18n>filterName}" multiSelect="false">
+                <items>
+                    <ViewSettingsItem  text="{i18n>filter1}" key="GE" selected="true"></ViewSettingsItem>
+                    <ViewSettingsItem text="{i18n>filter2}" key="LT" ></ViewSettingsItem>
+                </items>
+            </ViewSettingsFilterItem>
+        </filterItems>
+        <groupItems>
+            <ViewSettingsItem text="{i18n>group1}" key="unit"></ViewSettingsItem>
+        </groupItems>
+    </ViewSettingsDialog>
+</core:FragmentDefinition>

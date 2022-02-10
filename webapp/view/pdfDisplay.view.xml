@@ -1,0 +1,18 @@
+<mvc:View controllerName="ns.businesspartners.controller.pdfDisplay"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc">
+    <Page title="PDF Display" showNavButton="true" navButtonPress="onBack">
+        <RadioButtonGroup id="rbg1" select="onShowPdf">
+            <RadioButton text="Local PDF"></RadioButton>
+            <RadioButton text="PDF File from Different Origin"></RadioButton>
+        </RadioButtonGroup>
+        <Button text="Show PDF" press="onShowPdf" visible="false"></Button>
+        <Panel headerText="{/Title}">
+            <PDFViewer source="{/Source}" height="700px" id="idLocal">
+                <layoutData>
+                    <FlexItemData growFactor="1"></FlexItemData>
+                </layoutData>
+            </PDFViewer>
+        </Panel>
+    </Page>
+</mvc:View>

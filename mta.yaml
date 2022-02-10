@@ -1,0 +1,94 @@
+_schema-version: "3.2"
+ID: ns-businesspartners
+description: An SAPUI5 freestyle app to view a list of suppliers (demo)
+version: 0.0.1
+modules:
+- name: ns-businesspartners-dest-content
+  type: com.sap.application.content
+  requires:
+  - name: ns-businesspartners-dest-srv
+    parameters:
+      content-target: true
+  - name: ns-businesspartners-repo-host
+    parameters:
+      service-key:
+        name: ns-businesspartners-repo-host-key
+  - name: ns-businesspartners-uaa
+    parameters:
+      service-key:
+        name: ns-businesspartners-uaa-key
+  parameters:
+    content:
+      instance:
+        destinations:
+        - Name: ES5
+          ServiceInstanceName: ns-businesspartners-html5-srv
+          ServiceKeyName: ns-businesspartners-repo-host-key
+          sap.cloud.service: ns-businesspartners
+        - Authentication: OAuth2UserTokenExchange
+          Name: ns-businesspartners_uaa
+          ServiceInstanceName: ns-businesspartners-xsuaa-srv
+          ServiceKeyName: ns-businesspartners-uaa-key
+          sap.cloud.service: ns-businesspartners
+        existing_destinations_policy: ignore
+  build-parameters:
+    no-source: true
+- name: ns-businesspartners-app-content
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: ns-businesspartners-repo-host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - nsbusinesspartners.zip
+      name: nsbusinesspartners
+      target-path: resources/
+- name: nsbusinesspartners
+  type: html5
+  path: .
+  build-parameters:
+    build-result: dist
+    builder: custom
+    commands:
+    - npm install
+    - npm run build:cf
+    supported-platforms: []
+resources:
+- name: ns-businesspartners-dest-srv
+  type: org.cloudfoundry.managed-service
+  parameters:
+    config:
+      HTML5Runtime_enabled: true
+      init_data:
+        instance:
+          destinations:
+          - Authentication: NoAuthentication
+            Name: ui5
+            ProxyType: Internet
+            Type: HTTP
+            URL: https://ui5.sap.com
+          existing_destinations_policy: update
+      version: 1.0.0
+    service: destination
+    service-name: ns-businesspartners-dest-srv
+    service-plan: lite
+- name: ns-businesspartners-uaa
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: ns-businesspartners-xsuaa-srv
+    service-plan: application
+- name: ns-businesspartners-repo-host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-name: ns-businesspartners-html5-srv
+    service-plan: app-host
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true

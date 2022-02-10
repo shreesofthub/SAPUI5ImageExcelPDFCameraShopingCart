@@ -1,0 +1,247 @@
+{
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "ns.businesspartners",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "dataSources": {
+            "mainService": {
+                "uri": "model/mockData/fruit.json",
+                "type": "JSON",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            },
+            "rawData": {
+                "uri": "model/mockData/rawData.json",
+                "type": "JSON",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml"
+                }
+            }
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "ns-businesspartners-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "Object",
+                    "action": "display",
+                    "title": "{{appTitle}}",
+                    "subTitle": "{{appSubTitle}}",
+                    "icon": ""
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "sap-icon://detail-view",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "rootView": {
+            "viewName": "ns.businesspartners.view.suppliers",
+            "type": "XML",
+            "async": true,
+            "id": "suppliers"
+        },
+        "dependencies": {
+            "minUI5Version": "1.66.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.layout": {},
+                "sap.ui.table": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "ns.businesspartners.i18n.i18n"
+                }
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true
+            },
+            "rawData": {
+                "dataSource": "rawData",
+                "preload": true
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "viewType": "XML",
+                "async": true,
+                "viewPath": "ns.businesspartners.view",
+                "controlAggregation": "beginColumnPages",
+                "controlId": "app"
+            },
+            "routes": [
+                {
+                    "name": "Routesuppliers",
+                    "pattern": "Routesuppliers",
+                    "target": "Targetsuppliers"
+                },
+                {
+                    "name": "detailSupplier",
+                    "pattern": "detailSupplier/{id}",
+                    "target": "targetDetailSupplier"
+                },
+                {
+                    "name": "cartView",
+                    "pattern": "cart",
+                    "target": "targetCart"
+                },
+                {
+                    "name": "rbView",
+                    "pattern": "InitialView/{id}",
+                    "target": "targetRadioButton"
+                },
+                {
+                    "name": "file",
+                    "pattern": "file/{id}",
+                    "target": "targetFile"
+                },
+                {
+                    "name": "excel",
+                    "pattern": "excel/{id}",
+                    "target": "targetExcel"
+                },
+                {
+                    "name": "download",
+                    "pattern": "download/{id}",
+                    "target": "targetDownload"
+                },
+                {
+                    "name": "pdfDisplay",
+                    "pattern": "pdf/{id}",
+                    "target": "targetPDF"
+                },
+                {
+                    "name": "camera",
+                    "pattern": "camera/{id}",
+                    "target": "targetCamera"
+                },
+                {
+                    "name": "jsView",
+                    "pattern": "jsView/{id}",
+                    "target": "targetJSView"
+                }
+            ],
+            "targets": {
+                "Targetsuppliers": {
+                    "viewType": "XML",
+                    "transition": "slide",
+                    "controlAggregation": "pages",
+                    "viewName": "suppliers",
+                    "viewLevel": 1
+                },
+                "targetDetailSupplier": {
+                    "viewType": "XML",
+                    "viewName": "sup_detail",
+                    "viewId": "idSupDetail",
+                    "controlAggregation": "pages",
+                    "viewLevel": 3
+                },
+                "targetCart": {
+                    "viewName": "cart",
+                    "viewType": "XML",
+                    "viewId": "idCart",
+                    "controlAggregation": "pages",
+                    "viewLevel": 4
+                },
+                "targetRadioButton": {
+                    "viewName": "radioButton",
+                    "viewType": "XML",
+                    "viewId": "idRadioButton",
+                    "controlAggregation": "pages",
+                    "viewLevel": 2
+                },
+                "targetFile": {
+                    "viewName": "file",
+                    "viewType": "XML",
+                    "controlAggregation": "pages",
+                    "viewId": "idFile",
+                    "viewLevel": 2
+                },
+                "targetExcel": {
+                    "viewName": "excel",
+                    "viewType": "XML",
+                    "controlAggregation": "pages",
+                    "viewId": "idExcel",
+                    "viewLevel": 2
+                },
+                "targetDownload": {
+                    "viewName": "download",
+                    "viewType": "XML",
+                    "controlAggregation": "pages",
+                    "viewId": "idDownload",
+                    "viewLevel": 2
+                },
+                "targetPDF": {
+                    "viewName": "pdfDisplay",
+                    "viewType": "XML",
+                    "controlAggregation": "pages",
+                    "viewId": "idPDF",
+                    "vieLevel": 2
+                },
+                "targetCamera": {
+                    "viewName": "cameraIntegration",
+                    "viewType": "XML",
+                    "viewId": "idCamera",
+                    "viewLevel": 2,
+                    "controlAggregation": "pages"
+                },
+                "targetJSView": {
+                    "viewName": "viewDesgByJS",
+                    "viewType": "XML",
+                    "controlAggregation": "pages",
+                    "viewLevel": 2,
+                    "viewId": "idJS"
+                }
+            }
+        }
+    },
+    "sap.cloud": {
+        "public": true,
+        "service": "ns-businesspartners"
+    }
+}

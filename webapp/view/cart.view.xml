@@ -1,0 +1,54 @@
+<mvc:View controllerName="ns.businesspartners.controller.cart"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m">
+    <Page title="CART">
+        <headerContent>
+            <Button icon="sap-icon://decline" tooltip="close the Cart" press="onBack"></Button>
+            <Button icon="sap-icon://clear-all" press="onRefresh" tooltip="To Clear the Total cart"/>
+        </headerContent>
+        <Table id="idCartTable" alternateRowColors="true" items="{/cartTable}">
+            <columns>
+                <Column>
+                    <Label text="Fruit Name"></Label>
+                </Column>
+                <Column>
+                    <Label text="Image"></Label>
+                </Column>
+                <Column>
+                    <Label text="Description"></Label>
+                </Column>
+                <Column >
+                    <Label text="Quantity"></Label>
+                </Column>
+                <Column>
+                    <Label text="Unit"></Label>
+                </Column>
+                <Column>
+                    <Label text="Price"></Label>
+                </Column>
+                <Column>
+                    <Label text="Total"></Label>
+                </Column>
+                <Column>
+                    <Label text=" "></Label>
+                </Column>
+            </columns>
+            <ColumnListItem>
+                <Text text="{name}"/>
+                <Image src="{photoUrl}" height="50px" width="50px"/>
+                <Text text="{description}"/>
+                <Text text="{qty}"/>
+                <Text text="{unit}"/>
+                <Text text="{price}"/>
+                <Text text="{total}"/>
+                <Button icon="sap-icon://delete" press="onItemDeletion"/>
+            </ColumnListItem>
+        </Table>
+        <footer>
+            <Toolbar>
+                <ToolbarSpacer/>
+                <Button text="Place Order" press="onOrderPlace" tooltip="Confirm the Order" type="Accept"></Button>
+            </Toolbar>
+        </footer>
+    </Page>
+</mvc:View>
