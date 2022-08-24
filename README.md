@@ -31,4 +31,5 @@ An SAPUI5 freestyle app to view a list of suppliers (demo)
 
 1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
 
+![image](https://user-images.githubusercontent.com/55756119/186455758-3d1150ee-de25-40df-a61a-0490b86ae7c0.png)
 
